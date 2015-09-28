@@ -14,13 +14,13 @@
       (recur (dec n) (not acc)))))
 
 (defn recursive-reverse [coll]
-  (if (nil? (first coll))
-    ()
-    (cons (recursive-reverse (rest coll)) (first coll))))
+  (if (empty? coll)
+    []
+    (conj (recursive-reverse (rest coll)) (first coll))))
 
 
 (defn factorial [n]
-  __)
+  (reduce #(* (bigint %1) (bigint %2)) (range 1 (inc n))))
 
 (meditations
   "Recursion ends with a base case"
